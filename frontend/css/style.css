@@ -1,0 +1,101 @@
+/* To override Pico CSS Variables */
+/* :root {
+  --pico-border-radius: 0.5rem;
+} */
+
+/* .container & main are to  keep the footer at the bottom*/
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  height: auto;
+}
+
+/* check if these are needed */
+
+.card-width {
+  width: 40%;
+}
+
+.card-width-2 {
+  width: 20%;
+}
+
+.hero {
+  background-image: url('../img/matrix-code.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 150px;
+  opacity: 0.6;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: sticky;
+  top: 0;
+  background-color: #13171f;
+  opacity: 0.8;
+  /* transition: 0.5s; */
+}
+
+/* Blog Images */
+
+.summary img {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  width: 80%;
+}
+.summary2 img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.equation {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+th,
+td {
+  text-align: center;
+}
+
+/* button {
+  --pico-border-color: white;
+  --pico-border-radius: 2rem;
+} */
+
+/* Center input in the card #input and fieldset */
+#input {
+  justify-items: center;
+  align-content: center;
+  /* margin-bottom: 0; */
+}
+
+/* removes the default pico margin bottom variable of 19*/
+fieldset {
+  --pico-spacing: 0;
+  margin-bottom: 0;
+}
+
+#answerInput {
+  --pico-border-color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#answerButton {
+  --pico-border-color: white;
+}

@@ -1,0 +1,100 @@
+name,techstack
+Ava Collins,Python; Django; PostgreSQL; Redis
+Noah Bennett,JavaScript; React; Node.js; MongoDB
+Mia Patel,Java; Spring Boot; MySQL; Docker
+Liam Harris,TypeScript; Next.js; Tailwind CSS; Vercel
+Sophia Nguyen,Go; Gin; PostgreSQL; Kubernetes
+Ethan Walker,C#; .NET; SQL Server; Azure
+Isla Thompson,Ruby; Rails; SQLite; Sidekiq
+Lucas Morgan,PHP; Laravel; MySQL; Nginx
+Amelia Brooks,Python; FastAPI; PostgreSQL; Celery
+James Carter,JavaScript; Vue.js; Node.js; Firebase
+Harper Reed,Java; Quarkus; Oracle; Maven
+Benjamin Scott,Go; Echo; PostgreSQL; Grafana
+Evelyn Turner,TypeScript; Angular; RxJS; NgRx
+Henry Phillips,C#; ASP.NET Core; Azure SQL; Blazor
+Charlotte Evans,Python; Flask; Redis; Gunicorn
+Daniel Murphy,Rust; Actix Web; PostgreSQL; Docker
+Abigail Cooper,JavaScript; Svelte; Supabase; Vite
+Matthew Bailey,Java; Micronaut; MySQL; Kafka
+Emily Kelly,Python; Pandas; NumPy; Jupyter
+Samuel Ward,Go; Fiber; MongoDB; Docker Swarm
+Ella Price,TypeScript; React Native; Expo; Firebase
+Alexander Ross,PHP; Symfony; MariaDB; Twig
+Grace Peterson,Python; Django REST Framework; PostgreSQL; Celery
+David Powell,JavaScript; Express; MongoDB; Socket.io
+Chloe Butler,Java; Spring MVC; Hibernate; PostgreSQL
+Joseph Hughes,C#; .NET 8; Redis; Azure Functions
+Lily Simmons,Go; gRPC; CockroachDB; Kubernetes
+Owen Foster,Ruby; Sinatra; PostgreSQL; RSpec
+Zoe Sanders,TypeScript; Vue 3; Pinia; Vitest
+Gabriel Price,Python; PyTorch; CUDA; Jupyter
+Hannah Jenkins,Java; Spring Security; MySQL; Liquibase
+Jack Bell,Go; Kubernetes; Helm; Prometheus
+Nora Carter,JavaScript; React; GraphQL; Apollo
+Christopher Cooper,C#; WPF; SQLite; MVVM
+Mila Richardson,Python; Airflow; BigQuery; dbt
+Andrew Wood,PHP; CodeIgniter; MySQL; Apache
+Layla Hayes,TypeScript; Node.js; Prisma; PostgreSQL
+Ryan Coleman,Java; Android SDK; Firebase; Retrofit
+Aria Bennett,Python; Streamlit; Plotly; PostgreSQL
+Nicholas Powell,Go; Chi; PostgreSQL; S3
+Sofia Long,JavaScript; Remix; Tailwind CSS; Cloudflare
+Elias Hughes,Rust; Tokio; PostgreSQL; SeaORM
+Penelope Morris,C#; Xamarin; Azure; SQLite
+Caleb Rogers,Java; Vaadin; H2; Docker
+Victoria Reed,Python; SciPy; Matplotlib; Linux
+Isaac Cook,TypeScript; NestJS; PostgreSQL; Swagger
+Riley Morgan,PHP; Laravel; Redis; Horizon
+Violet Bailey,Go; Buffalo; MySQL; Terraform
+Adam Murphy,JavaScript; Nuxt.js; Pinia; Supabase
+Lucy Cooper,Java; JUnit; Maven; PostgreSQL
+Nathan Kelly,C#; ASP.NET MVC; SQL Server; IIS
+Stella Price,Python; Django; Celery; RabbitMQ
+Thomas Ward,Go; Gin; Redis; PostgreSQL
+Audrey Gray,TypeScript; React; Zustand; Vite
+Leonard Jenkins,Ruby; Rails; PostgreSQL; Turbo
+Paisley Brooks,JavaScript; Angular; TypeScript; Jasmine
+Julian Reed,Python; Flask; SQLAlchemy; SQLite
+Ella Marshall,Java; Spring Boot; Kafka; MongoDB
+Dylan Perry,C#; .NET; Entity Framework; Azure
+Hazel Parker,Go; Echo; InfluxDB; Grafana
+Aaron Bennett,TypeScript; Next.js; Prisma; PostgreSQL
+Ruby Collins,Python; FastAPI; Pydantic; Uvicorn
+Charles Foster,JavaScript; SvelteKit; Vercel; Firebase
+Madison Powell,Java; Spring Cloud; Redis; Docker
+Theodore Hughes,Rust; Axum; PostgreSQL; Docker
+Aaliyah Stewart,C#; Blazor; Azure AD; SQL Server
+Connor Butler,Python; Dash; Plotly; Redis
+Caroline Barnes,Java; Hibernate; Oracle; Flyway
+Miles Rogers,Go; Fiber; PostgreSQL; OpenTelemetry
+Anna Simmons,TypeScript; Angular; Material UI; RxJS
+Jeremiah Reed,PHP; Laravel; MySQL; Docker
+Sienna Collins,Python; scikit-learn; Pandas; Jupyter
+Hunter Price,JavaScript; Node.js; Express; PostgreSQL
+Clara Murphy,Java; Spring Boot; Elasticsearch; Kibana
+Evan Cooper,C#; .NET; RabbitMQ; PostgreSQL
+Alice Parker,Go; gRPC; Kubernetes; Helm
+Jordan Kelly,TypeScript; React; NextAuth; PostgreSQL
+Piper Ward,Python; Django; PostgreSQL; WhiteNoise
+Logan Hayes,Java; Spring Batch; Oracle; Kafka
+Naomi Bennett,JavaScript; Vue.js; Nuxt; Firebase
+Sebastian Gray,C#; ASP.NET Core; Redis; Docker
+Luna Brooks,Ruby; Rails; Sidekiq; PostgreSQL
+Ian Coleman,Go; Gin; MySQL; Prometheus
+Maya Turner,TypeScript; Next.js; Tailwind CSS; Clerk
+Eli Richardson,Python; Flask; MongoDB; Gunicorn
+Jade Bell,Java; Spring Boot; Gradle; MySQL
+Cole Peterson,C#; Blazor; SQLite; SignalR
+Sara Long,JavaScript; React; Redux; Node.js
+Axel Morris,Go; Kubernetes; Docker; Helm
+Faith Jenkins,Python; FastAPI; SQLAlchemy; PostgreSQL
+Dominic Cook,PHP; Laravel; Livewire; MySQL
+Tara Russell,TypeScript; NestJS; GraphQL; PostgreSQL
+Brandon Powell,Java; Micronaut; Kafka; Prometheus
+Leah Wood,Python; Airflow; Snowflake; dbt
+Eric Brooks,Go; Echo; Redis; PostgreSQL
+Melanie Carter,C#; .NET; Azure; Cosmos DB
+Oscar Morris,JavaScript; Remix; Tailwind CSS; Prisma
+Jasmine Reed,Python; Django; Celery; PostgreSQL
+Parker Hughes,Rust; Actix Web; Tokio; PostgreSQL

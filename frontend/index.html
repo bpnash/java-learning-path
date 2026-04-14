@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/pico.cyan.min.css" />
+    <link rel="stylesheet" href="css/pico.colors.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="img/avatar.png"
+      width="16"
+      height="16"
+    />
+    <title>Testing ES6 Modules</title>
+  </head>
+  <body class="container">
+    <!-- Banner -->
+    <div class="hero"></div>
+    <!-- Header & Navbar -->
+    <header id="siteHeader">
+      <nav>
+        <ul>
+          <li>
+            <a href="index.html"><strong>🏠 Home</strong></a>
+          </li>
+        </ul>
+        <ul>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Page Title -->
+    <section class="center">
+      <h1 class="pico-color-cyan-300">Fetch API</h1>
+    </section>
+    <main>
+      <section class="grid">
+        <div>
+          <button id="getEngineers" class="outline">Get All Engineers</button>
+        </div>
+        <div>
+          <button id="getEngineerById" class="outline">
+            Get Engineers By Id
+          </button>
+        </div>
+        <div>
+          <button id="reset" class="secondary">Reset</button>
+        </div>
+      </section>
+      <hr />
+      <section class="grid">
+        <div id="statusMessageArea"></div>
+        <div id="getId" style="display: none">
+          <!-- <div id="getId"> -->
+          <form id="enterId">
+            <fieldset class="input" role="group">
+              <input type="number" id="inputId" name="inputId" />
+              <input type="submit" id="submitId" value="Enter Id" />
+            </fieldset>
+          </form>
+        </div>
+        <div></div>
+        <div></div>
+      </section>
+      <article>
+        <div id="responseOutputArea"></div>
+      </article>
+      <!-- Prompts & Messages -->
+      <div id="messageArea1"></div>
+      <div id="messageArea2"></div>
+    </main>
+    <footer>
+      <hr />
+      <p>© <span id="copyright"></span> Bernard Nash. All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="index.js"></script>
+    <script type="module" src="modules/messages.mjs"></script>
+    <script type="module" src="modules/fetch.mjs"></script>
+    <script>
+      const header = document.getElementById('siteHeader');
+      let sticky = header.offsetTop;
+      // console.log('sticky', sticky);
+      // let scrolled = false;
+
+      window.onscroll = () => {
+        if (window.scrollY > sticky) {
+          header.classList.add('sticky');
+          // scrolled = true;
+        } else {
+          header.classList.remove('sticky');
+          // scrolled = false;
+        }
+      };
+    </script>
+    <script>
+      let date = new Date();
+      let year = date.getFullYear();
+      document.getElementById('copyright').innerHTML = year;
+    </script>
+  </body>
+</html>
