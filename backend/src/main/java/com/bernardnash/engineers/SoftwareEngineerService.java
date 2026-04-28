@@ -22,8 +22,6 @@ public class SoftwareEngineerService {
         return softwareEngineerRepository.findAll();
     }
 
-   
-
     // Use a DTO in a real app
     public void createSoftwareEngineer(SoftwareEngineer softwareEngineer) {
         softwareEngineerRepository.save(softwareEngineer);
@@ -32,5 +30,9 @@ public class SoftwareEngineerService {
     public SoftwareEngineer getSoftwareEngineerById(Integer id) {
         return softwareEngineerRepository.findById(id)
                 .orElseThrow(() -> new IllegalStateException(id + " not found"));
+    }
+
+    public List<SoftwareEngineer> getSoftwareEngineersByName(String name) {
+        return softwareEngineerRepository.findByNameContainingIgnoreCaseOrderByNameAsc(name);
     }
 }

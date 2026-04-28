@@ -30,6 +30,10 @@ public class SoftwareEngineerController {
         return softwareEngineerService.getSoftwareEngineerById(id);
     }
 
+    @GetMapping(params = "name")
+    public List<SoftwareEngineer> getEngineersByName(@RequestParam String name) {
+        return softwareEngineerService.getSoftwareEngineersByName(name);
+    }
 
     @PostMapping
     public void addSoftwareEngineer(@RequestBody SoftwareEngineer softwareEngineer) {
