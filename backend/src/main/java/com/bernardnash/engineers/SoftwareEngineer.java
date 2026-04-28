@@ -10,25 +10,25 @@ import java.util.Objects;
 @Entity
 public class SoftwareEngineer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
     private String name;
     private String techStack;
 
     public SoftwareEngineer() {
     }
 
-    public SoftwareEngineer(Integer id, String name, String techStack) {
+    public SoftwareEngineer(String id, String name, String techStack) {
         this.id = id;
         this.name = name;
         this.techStack = techStack;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

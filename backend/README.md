@@ -82,6 +82,12 @@ Use `application.properties` in `src/main/resources` folder
 
 I've also added a `env.properties` to hide the credentials from being hard coded in a repo file 
 
+**NOTE:** MAKE SURE THE URL IS IN THE RIGHT FORMAT
+The difference between 
+`DB_URL=jdbc:postgresql://localhost:5332/engineers` vs
+`DB_URL=jdbc.postgresql://localhost:5332/engineers` 
+i.e. `jdbc.` a dot instead of a colon `jdbc:` may cause hours of troubleshooting 
+
 Complete all the details.
 
 Note: running the app still fails as the db doesn't exist
@@ -96,9 +102,9 @@ Instead you need to login to the docker container and create it manually via the
 docker compose ps # get the container name = postgres-spring-boot
 docker exec -it postgres-spring-boot bash # log into the container as root
 # psgl will fail as root so login as the db user
-psql -U amigoscode
+psql -U bpn
 \l # lists all databases - Note that an `amigoscode` database exists but we might not want that
-create database amigos;
+create database engineers;
 \l # to check
 ```
 Boom 💥💥
@@ -163,7 +169,7 @@ spring.jpa.show-sql=true
 Once logged in to the container as `amigoscode` - see above
 
 ```shell
-\c amigos # connects to amigos database
+\c engineers # connects to engineers database
 \d software_engineer # shows the table
 ```
 
@@ -226,7 +232,7 @@ once the `SoftwareEngineerService` has been set up add it as a field to the cont
 This means when you hit an endpoint the business logic of the service returns the results of a
 query
 
-## Inserting data into the DB
+## Inserting data into the DB via shell - deprecated
 
 Once logged in: 
 ```shell
@@ -238,10 +244,21 @@ INSERT INTO software_engineer (name, tech_stack) VALUES ('jamila', 'java, spring
 SELECT * FROM software_engineer; # don't forget the ;
 
 ```
-
+## SoftwareEngineer object Ids
 To rectify in `SoftwareEngineer` we also add under the `@Id` tag an `@GeneratedValue` tag e.g.
 
 `@GeneratedValue(strategy= GenerationType.IDENTITY)`
 
 can also generate UUIDs etc
 
+## Insert data with a script
+
+in the `/data/` folder there is a script and a CSV file
+
+run the script
+`./data-loader.sh`
+
+May have to return change the permissions
+`chmod u+x data-loader.sh`
+or 
+`chmod 777 data-loader.sh`
