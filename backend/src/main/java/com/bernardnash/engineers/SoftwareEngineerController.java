@@ -35,6 +35,11 @@ public class SoftwareEngineerController {
         return softwareEngineerService.getSoftwareEngineersByName(name);
     }
 
+    @GetMapping(params = "techStack")
+    public List<SoftwareEngineer> getEngineersByTechStack(@RequestParam String techStack) {
+        // Implement this method in the service and repository layers
+        return softwareEngineerService.getSoftwareEngineersByTechStack(techStack);
+    }
     @PostMapping
     public void addSoftwareEngineer(@RequestBody SoftwareEngineer softwareEngineer) {
        softwareEngineerService.createSoftwareEngineer(softwareEngineer);
