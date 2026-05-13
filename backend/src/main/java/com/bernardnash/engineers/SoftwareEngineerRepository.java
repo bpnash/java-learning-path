@@ -7,4 +7,5 @@ import java.util.List;
 // Database layer - can use other interfaces like CrudRepository
 public interface SoftwareEngineerRepository extends JpaRepository<SoftwareEngineer, Integer> {
     List<SoftwareEngineer> findByNameContainingIgnoreCaseOrderByNameAsc(String name);
+    List<SoftwareEngineer> findByTechStackContainingIgnoreCaseOrderByNameAsc(String techStack);
 }
