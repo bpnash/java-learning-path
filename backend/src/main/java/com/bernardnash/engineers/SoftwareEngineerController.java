@@ -10,9 +10,11 @@ import java.util.List;
 public class SoftwareEngineerController {
 
     private final SoftwareEngineerService softwareEngineerService;
+    private final SkillsService skillsService;
 
-    public SoftwareEngineerController(SoftwareEngineerService softwareEngineerService) {
+    public SoftwareEngineerController(SoftwareEngineerService softwareEngineerService, SkillsService skillsService) {
         this.softwareEngineerService = softwareEngineerService;
+        this.skillsService = skillsService;
     }
 
     @GetMapping
@@ -43,5 +45,10 @@ public class SoftwareEngineerController {
     @PostMapping
     public void addSoftwareEngineer(@RequestBody SoftwareEngineer softwareEngineer) {
        softwareEngineerService.createSoftwareEngineer(softwareEngineer);
+    }
+
+    @PostMapping
+    public void addSkillByEngineerId(@RequestBody SkillRequest skillRequest) {
+        skillsService.addSkillToEngineer(skillRequest.getEngineerId(), skillRequest.getSkillName());
     }
 }
