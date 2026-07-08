@@ -37,9 +37,12 @@ class AddSkillAcceptanceTest {
         registry.add("spring.datasource.url", postgres::getJdbcUrl);
         registry.add("spring.datasource.username", postgres::getUsername);
         registry.add("spring.datasource.password", postgres::getPassword);
-        // Use our schema.sql instead of Hibernate auto-DDL
         registry.add("spring.jpa.hibernate.ddl-auto", () -> "none");
-        registry.add("spring.sql.init.mode", () -> "always");
+
+        // Explicitly define the driver to prevent auto-detection failure
+        registry.add("spring.datasource.driver-class-name", () -> "org.postgresql.Driver");
+
+        registry.add("spring.jpa.hibernate.ddl-auto", () -> "none");
     }
 
     @LocalServerPort

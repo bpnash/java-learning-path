@@ -29,6 +29,7 @@ dependencies {
 	testImplementation 'org.testcontainers:postgresql'
 	testImplementation 'io.rest-assured:rest-assured:5.4.0'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testRuntimeOnly 'org.postgresql:postgresql'
 }
 
 tasks.named('test') {
