@@ -10,9 +10,11 @@ import java.util.List;
 public class SoftwareEngineerController {
 
     private final SoftwareEngineerService softwareEngineerService;
+    private final SkillsService skillsService;
 
-    public SoftwareEngineerController(SoftwareEngineerService softwareEngineerService) {
+    public SoftwareEngineerController(SoftwareEngineerService softwareEngineerService, SkillsService skillsService) {
         this.softwareEngineerService = softwareEngineerService;
+        this.skillsService = skillsService;
     }
 
     @GetMapping
@@ -30,9 +32,23 @@ public class SoftwareEngineerController {
         return softwareEngineerService.getSoftwareEngineerById(id);
     }
 
+    @GetMapping(params = "name")
+    public List<SoftwareEngineer> getEngineersByName(@RequestParam String name) {
+        return softwareEngineerService.getSoftwareEngineersByName(name);
+    }
 
+    @GetMapping(params = "techStack")
+    public List<SoftwareEngineer> getEngineersByTechStack(@RequestParam String techStack) {
+        // Implement this method in the service and repository layers
+        return softwareEngineerService.getSoftwareEngineersByTechStack(techStack);
+    }
     @PostMapping
     public void addSoftwareEngineer(@RequestBody SoftwareEngineer softwareEngineer) {
        softwareEngineerService.createSoftwareEngineer(softwareEngineer);
+    }
+
+    @PostMapping("{id}/skills")
+    public void addSkillByEngineerId(@PathVariable Long id, @RequestBody SkillRequest skillRequest) {
+        skillsService.addSkillToEngineer(id, skillRequest.getSkillName());
     }
 }
