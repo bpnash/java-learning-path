@@ -47,8 +47,8 @@ public class SoftwareEngineerController {
        softwareEngineerService.createSoftwareEngineer(softwareEngineer);
     }
 
-    @PostMapping
-    public void addSkillByEngineerId(@RequestBody SkillRequest skillRequest) {
-        skillsService.addSkillToEngineer(skillRequest.getEngineerId(), skillRequest.getSkillName());
+    @PostMapping("{id}/skills")
+    public void addSkillByEngineerId(@PathVariable Long id, @RequestBody SkillRequest skillRequest) {
+        skillsService.addSkillToEngineer(id, skillRequest.getSkillName());
     }
 }

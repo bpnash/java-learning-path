@@ -1,16 +1,7 @@
 package com.bernardnash.engineers;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
 public class SkillRequest {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 
 	private Long engineerId;
 	private String skillName;
@@ -22,23 +13,13 @@ public class SkillRequest {
 		this.experienceYears = experienceYears;
 	}
 
-	public SkillRequest() {
-
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	public SkillRequest() {}
 
 	public Long getEngineerId() {
 		return engineerId;
 	}
 
-	public void setEngineerId(Long engineerId ) {
+	public void setEngineerId(Long engineerId) {
 		this.engineerId = engineerId;
 	}
 
@@ -57,5 +38,4 @@ public class SkillRequest {
 	public void setExperienceYears(Integer experienceYears) {
 		this.experienceYears = experienceYears;
 	}
-
 }
