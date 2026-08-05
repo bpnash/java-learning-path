@@ -18,15 +18,10 @@ public class SoftwareEngineerController {
     @GetMapping
     public List<SoftwareEngineer> getEngineers() {
         return softwareEngineerService.getAllSoftwareEngineers();
-//        Hard coded data
-//        return List.of(
-//                new SoftwareEngineer(1, "james", "js, node, react, tailwind-css"),
-//                new SoftwareEngineer(2, "jamila", "java, spring, spring boot")
-//       );
     }
 
     @GetMapping("{id}")
-    public SoftwareEngineer getEngineerById(@PathVariable Integer id) {
+    public SoftwareEngineer getEngineerById(@PathVariable Long id) {
         return softwareEngineerService.getSoftwareEngineerById(id);
     }
 
@@ -36,12 +31,12 @@ public class SoftwareEngineerController {
     }
 
     @GetMapping(params = "techStack")
-    public List<SoftwareEngineer> getEngineersByTechStack(@RequestParam String techStack) {
-        // Implement this method in the service and repository layers
+    public List<SoftwareEngineer> getEngineersByTechStack(@RequestParam TechStackType techStack) {
         return softwareEngineerService.getSoftwareEngineersByTechStack(techStack);
     }
+
     @PostMapping
-    public void addSoftwareEngineer(@RequestBody SoftwareEngineer softwareEngineer) {
-       softwareEngineerService.createSoftwareEngineer(softwareEngineer);
+    public SoftwareEngineer addSoftwareEngineer(@RequestBody SoftwareEngineer softwareEngineer) {
+        return softwareEngineerService.createSoftwareEngineer(softwareEngineer);
     }
 }

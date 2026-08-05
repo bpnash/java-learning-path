@@ -17,12 +17,10 @@ public class SoftwareEngineerService {
     }
 
     public List<SoftwareEngineer> getAllSoftwareEngineers() {
-        // Many methods to choose here
-        // This writes the SQL behind the scenes
         return softwareEngineerRepository.findAll();
     }
 
-    public SoftwareEngineer getSoftwareEngineerById(Integer id) {
+    public SoftwareEngineer getSoftwareEngineerById(Long id) {
         return softwareEngineerRepository.findById(id)
                 .orElseThrow(() -> new IllegalStateException(id + " not found"));
     }
@@ -31,12 +29,14 @@ public class SoftwareEngineerService {
         return softwareEngineerRepository.findByNameContainingIgnoreCaseOrderByNameAsc(name);
     }
 
-    public List<SoftwareEngineer> getSoftwareEngineersByTechStack(String techStack) {
-        return softwareEngineerRepository.findByTechStackContainingIgnoreCaseOrderByNameAsc(techStack);
+    public List<SoftwareEngineer> getSoftwareEngineersByTechStack(TechStackType techStack) {
+        return softwareEngineerRepository.findByTechStacksTechStackOrderByNameAsc(techStack);
     }
 
     // Use a DTO in a real app
-    public void createSoftwareEngineer(SoftwareEngineer softwareEngineer) {
-        softwareEngineerRepository.save(softwareEngineer);
+    public SoftwareEngineer createSoftwareEngineer(SoftwareEngineer softwareEngineer) {
+        // re-link children so the FK is populated
+        softwareEngineer.setTechStacks(softwareEngineer.getTechStacks());
+        return softwareEngineerRepository.save(softwareEngineer);
     }
 }

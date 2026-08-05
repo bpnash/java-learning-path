@@ -16,25 +16,9 @@ public class SoftwareEngineerControllerTest {
     @Mock SoftwareEngineerService softwareEngineerService;
     @Test
     void givenGetEngineersById_whenIdExists_thenReturnEngineer() {
-        when(softwareEngineerService.getSoftwareEngineerById(1)).thenReturn(new SoftwareEngineer(1, "Alice", "Java, Spring"));
-        SoftwareEngineer softwareEngineer = softwareEngineerController.getEngineerById(1);
+        when(softwareEngineerService.getSoftwareEngineerById(1L)).thenReturn(new SoftwareEngineer(1L, "Alice", "alice@example.com"));
+        SoftwareEngineer softwareEngineer = softwareEngineerController.getEngineerById(1L);
 
-        Assertions.assertEquals(1, softwareEngineer.getId());
-        // Given Copilot suggestion
-//        SoftwareEngineerRepository repository = new InMemorySoftwareEngineerRepository();
-//        SoftwareEngineerService service = new SoftwareEngineerService(repository);
-//        SoftwareEngineerController controller = new SoftwareEngineerController(service);
-//
-//        SoftwareEngineer engineer = new SoftwareEngineer(1, "Alice", "Java, Spring");
-//        repository.save(engineer);
-//
-//        // When
-//        SoftwareEngineer result = controller.getEngineerById(1);
-//
-//        // Then
-//        assert result != null;
-//        assert result.getId().equals(engineer.getId());
-//        assert result.getName().equals(engineer.getName());
-//        assert result.getSkills().equals(engineer.getSkills());
+        Assertions.assertEquals(1L, softwareEngineer.getId());
     }
 }
