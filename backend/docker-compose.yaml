@@ -5,9 +5,11 @@ services:
     environment:
       POSTGRES_USER: bpn
       POSTGRES_PASSWORD: password
+      POSTGRES_DB: engineers
       PGDATA: /data/postgres
     volumes:
       - db:/data/postgres
+      - ./data/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
     ports:
       - "5332:5432"
     networks:
