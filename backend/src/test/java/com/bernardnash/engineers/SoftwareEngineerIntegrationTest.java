@@ -68,5 +68,78 @@ class SoftwareEngineerIntegrationTest {
                 .extracting(TechStack::getTechStack)
                 .containsExactlyInAnyOrder(TechStackType.JAVA, TechStackType.SPRING_BOOT);
     }
+
+    @Test
+    void getEngineersByTechStack_returnsOnlyMatchingEngineers() {
+        // Given: two engineers with different stacks
+        SoftwareEngineer alice = new SoftwareEngineer(null, "Alice", "alice@example.com");
+        alice.addTechStack(new TechStack(TechStackType.JAVA));
+        alice.addTechStack(new TechStack(TechStackType.SPRING_BOOT));
+        repository.save(alice);
+
+        SoftwareEngineer bob = new SoftwareEngineer(null, "Bob", "bob@example.com");
+        bob.addTechStack(new TechStack(TechStackType.PYTHON));
+        repository.save(bob);
+
+        // When: querying by techStack=JAVA
+        ResponseEntity<SoftwareEngineer[]> response = restTemplate.getForEntity(
+                "/api/v1/software-engineers?techStack=JAVA", SoftwareEngineer[].class);
+
+        // Then: only Alice is returned
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).hasSize(1);
+        assertThat(response.getBody()[0].getName()).isEqualTo("Alice");
+        assertThat(response.getBody()[0].getTechStacks())
+                .extracting(TechStack::getTechStack)
+                .contains(TechStackType.JAVA);
+    }
+
+    @Test
+    void getEngineersByTechStack_ordersResultsByName() {
+        // Given: two JAVA engineers saved out of name order
+        SoftwareEngineer zoe = new SoftwareEngineer(null, "Zoe", "zoe@example.com");
+        zoe.addTechStack(new TechStack(TechStackType.JAVA));
+        repository.save(zoe);
+
+        SoftwareEngineer adam = new SoftwareEngineer(null, "Adam", "adam@example.com");
+        adam.addTechStack(new TechStack(TechStackType.JAVA));
+        repository.save(adam);
+
+        // When
+        ResponseEntity<SoftwareEngineer[]> response = restTemplate.getForEntity(
+                "/api/v1/software-engineers?techStack=JAVA", SoftwareEngineer[].class);
+
+        // Then: ordered by name ascending
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody())
+                .extracting(SoftwareEngineer::getName)
+                .containsExactly("Adam", "Zoe");
+    }
+
+    @Test
+    void getEngineersByTechStack_whenNoMatch_returnsEmptyList() {
+        // Given: only a PYTHON engineer
+        SoftwareEngineer bob = new SoftwareEngineer(null, "Bob", "bob@example.com");
+        bob.addTechStack(new TechStack(TechStackType.PYTHON));
+        repository.save(bob);
+
+        // When: querying a stack nobody has
+        ResponseEntity<SoftwareEngineer[]> response = restTemplate.getForEntity(
+                "/api/v1/software-engineers?techStack=REACT", SoftwareEngineer[].class);
+
+        // Then
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isEmpty();
+    }
+
+    @Test
+    void getEngineersByTechStack_withInvalidValue_returnsBadRequest() {
+        // When: an invalid enum value is submitted
+        ResponseEntity<String> response = restTemplate.getForEntity(
+                "/api/v1/software-engineers?techStack=COBOL", String.class);
+
+        // Then: Spring rejects it with 400
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+    }
 }
 
