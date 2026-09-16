@@ -1,7 +1,7 @@
-package com.bernardnash.engineers;
+package com.bernardnash.engineers.repository;
 
+import com.bernardnash.engineers.entity.SoftwareEngineer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-// Database layer - can use other interfaces like CrudRepository
 public interface SoftwareEngineerRepository extends JpaRepository<SoftwareEngineer, Integer> {
 }
