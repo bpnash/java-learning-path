@@ -226,6 +226,22 @@ once the `SoftwareEngineerService` has been set up add it as a field to the cont
 This means when you hit an endpoint the business logic of the service returns the results of a
 query
 
+## Application layers
+
+The application separates its HTTP, business, and persistence responsibilities:
+
+- `controller` contains REST endpoints and maps HTTP request and response DTOs to service DTOs.
+- `service` contains use-case logic and maps service DTOs to and from entities.
+- `repository` contains Spring Data database access interfaces.
+- `entity` contains JPA-managed persistence models.
+- `controller.dto` contains HTTP request and response contracts.
+- `service.dto` contains service-layer contracts that are independent of HTTP and JPA.
+- `exception` contains API-specific exceptions and their HTTP error mappings.
+
+The `POST /api/v1/software-engineers` endpoint accepts a `CreateSoftwareEngineerRequest` and returns a
+`SoftwareEngineerResponse` with a `201 Created` status. This keeps the JPA entity out of the public
+API contract and validates the supplied name and tech stack before service logic runs.
+
 ## Inserting data into the DB
 
 Once logged in: 
@@ -244,4 +260,3 @@ To rectify in `SoftwareEngineer` we also add under the `@Id` tag an `@GeneratedV
 `@GeneratedValue(strategy= GenerationType.IDENTITY)`
 
 can also generate UUIDs etc
-

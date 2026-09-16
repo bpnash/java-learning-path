@@ -1,6 +1,5 @@
-package com.bernardnash.engineers;
+package com.bernardnash.engineers.model;
 
-// Matches the techstack_type enum in data/schema.sql
 public enum TechStackType {
     JAVA,
     SPRING_BOOT,
@@ -11,4 +10,3 @@ public enum TechStackType {
     REACT,
     NODE
 }
-

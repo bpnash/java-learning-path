@@ -1,5 +1,7 @@
 package com.bernardnash.engineers;
 
+import com.bernardnash.engineers.entity.SoftwareEngineer;
+import com.bernardnash.engineers.repository.SoftwareEngineerRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

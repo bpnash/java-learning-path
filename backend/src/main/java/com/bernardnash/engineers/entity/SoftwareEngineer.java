@@ -1,10 +1,16 @@
-package com.bernardnash.engineers;
+package com.bernardnash.engineers.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name = "engineers")
@@ -23,7 +29,12 @@ public class SoftwareEngineer {
     @OneToMany(mappedBy = "engineer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TechStack> techStacks = new ArrayList<>();
 
-    public SoftwareEngineer() {
+    protected SoftwareEngineer() {
+    }
+
+    public SoftwareEngineer(String name, String email) {
+        this.name = name;
+        this.email = email;
     }
 
     public SoftwareEngineer(Long id, String name, String email) {
@@ -57,31 +68,11 @@ public class SoftwareEngineer {
     }
 
     public List<TechStack> getTechStacks() {
-        return techStacks;
-    }
-
-    public void setTechStacks(List<TechStack> techStacks) {
-        List<TechStack> copy = techStacks == null ? new ArrayList<>() : new ArrayList<>(techStacks);
-        this.techStacks.clear();
-        copy.forEach(this::addTechStack);
+        return List.copyOf(techStacks);
     }
 
     public void addTechStack(TechStack techStack) {
         techStack.setEngineer(this);
-        this.techStacks.add(techStack);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        SoftwareEngineer that = (SoftwareEngineer) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name)
-                && Objects.equals(email, that.email);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, email);
+        techStacks.add(techStack);
     }
 }
