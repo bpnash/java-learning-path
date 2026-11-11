@@ -1,7 +1,7 @@
 package com.bernardnash.engineers.controller;
 
-import com.bernardnash.engineers.controller.dto.CreateSoftwareEngineerRequest;
-import com.bernardnash.engineers.controller.dto.SoftwareEngineerResponse;
+import com.bernardnash.engineers.controller.request.CreateSoftwareEngineerRequest;
+import com.bernardnash.engineers.controller.request.SoftwareEngineerResponse;
 import com.bernardnash.engineers.service.SoftwareEngineerService;
 import com.bernardnash.engineers.service.dto.CreateSoftwareEngineerDto;
 import com.bernardnash.engineers.service.dto.SoftwareEngineerDto;

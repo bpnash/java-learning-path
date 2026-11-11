@@ -1,4 +1,4 @@
-package com.bernardnash.engineers.controller.dto;
+package com.bernardnash.engineers.controller.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

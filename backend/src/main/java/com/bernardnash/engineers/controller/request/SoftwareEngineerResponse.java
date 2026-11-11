@@ -1,4 +1,4 @@
-package com.bernardnash.engineers.controller.dto;
+package com.bernardnash.engineers.controller.request;
 
 import com.bernardnash.engineers.model.TechStackType;
 
